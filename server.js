@@ -22,14 +22,14 @@ const db = new ListingsDB();
 
 const app = express();
 const cors = require('cors');
-const HTTP_PORT = process.env.PORT || 8080;
+const HTTP_PORT = process.env.MONGO_PORT || 8080;
 
 app.use(cors());
 
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.send({ message: "API Listening" });
+  res.send({ message: "API Listening"});
 });
 
 db.initialize(process.env.MONGODB_CONN_STRING).then(() => {
