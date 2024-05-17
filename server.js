@@ -99,3 +99,5 @@ app.delete('/api/listings/:id', async (req, res) => {
     res.status(500).json({ error: 'Failed to delete listing', details: err.message });
   }
 });
+
+module.exports = app;
