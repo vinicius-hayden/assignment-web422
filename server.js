@@ -29,7 +29,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.send({ message: "API Listening"});
+  res.send({ message: "API Listening", name: "Vinicius Souza da Silva", studentID : "135067221", email: "vhsouza-da-silva@myseneca.ca"});
 });
 
 db.initialize(process.env.MONGODB_CONN_STRING).then(() => {
