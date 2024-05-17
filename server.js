@@ -32,10 +32,6 @@ app.get('/', (req, res) => {
   res.send({ message: "API Listening" });
 });
 
-// app.listen(HTTP_PORT, () => {
-//     console.log(`Server listening on port ${HTTP_PORT}`);
-// })
-
 db.initialize(process.env.MONGODB_CONN_STRING).then(() => {
   app.listen(HTTP_PORT, () => {
     console.log(`server listening on: ${HTTP_PORT}`);
