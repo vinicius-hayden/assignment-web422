@@ -28,24 +28,15 @@ module.exports = class ListingsDB {
     return newListing;
   }
 
-  async getAllListings(page, perPage, name) {
-    console.log('Retrieving listings with parameters:', { page, perPage, name });
-    let findBy = name ? { "name": { "$regex": name, "$options": "i" } } : {};
+  getAllListings(page, perPage, name) {
+    let findBy = name ? { "name": { "$regex": name, "$options": "i" } } : {}
 
-    try {
-        if (+page && +perPage) {
-            const listings = await this.Listing.find(findBy, {reviews: 0}).sort({ number_of_reviews: -1 }).skip((page - 1) * +perPage).limit(+perPage).exec();
-            console.log('Retrieved listings:', listings);
-            return listings;
-        } else {
-            throw new Error('page and perPage query parameters must be valid numbers');
-        }
-    } catch (error) {
-        console.error('Error retrieving listings:', error);
-        throw new Error('Failed to retrieve listings');
+    if (+page && +perPage) {
+      return this.Listing.find(findBy, {reviews: 0}).sort({ number_of_reviews: -1 }).skip((page - 1) * +perPage).limit(+perPage).exec();
     }
-}
 
+    return Promise.reject(new Error('page and perPage query parameters must be valid numbers'));
+  }
 
   getListingById(id) {
     return this.Listing.findOne({ _id: id }).exec();
