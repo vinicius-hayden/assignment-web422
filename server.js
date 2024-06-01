@@ -1,12 +1,12 @@
 /********************************************************************************
-* WEB422 – Assignment 1
+* WEB422 – Assignment 2
 *
 * I declare that this assignment is my own work in accordance with Seneca's
 * Academic Integrity Policy:
 *
 * https://www.senecapolytechnic.ca/about/policies/academic-integrity-policy.html
 *
-* Name: Vinicius Souza da Silva Student ID: 135067221 Date: 2024/05/17
+* Name: Vinicius Souza da Silva Student ID: 135067221 Date: 2024/05/31
 *
 * Published URL: https://assignment-web422.vercel.app/
 *
