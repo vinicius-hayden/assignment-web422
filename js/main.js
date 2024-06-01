@@ -11,7 +11,7 @@ const searchButton = document.getElementById('search');
 const clearButton = document.getElementById('clearValue');
 
 function loadListingsData() {
-  let url = `http:///localhost:3000/api/listings?page=${page}&perPage=${perPage}`;
+  let url = `https://assignment-web422.vercel.app/api/listings?page=${page}&perPage=${perPage}`;
   if (searchName) {
     url += `&name=${searchName}`;
   }
@@ -38,7 +38,7 @@ function loadListingsData() {
         document.querySelectorAll('#listingsTable tr').forEach(row => {
           row.addEventListener('click', () => {
             const listingId = row.getAttribute('data-id');
-            fetch(`http://localhost:3000/api/listings/${listingId}`)
+            fetch(`https://assignment-web422.vercel.app/api/listings/${listingId}`)
               .then(res => res.ok ? res.json() : Promise.reject(res.status))
               .then(data => {
                 if (data) {
